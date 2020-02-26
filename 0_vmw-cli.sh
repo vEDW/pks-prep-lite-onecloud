@@ -13,4 +13,5 @@ sudo apt-get install -y build-essential zlibc zlib1g-dev ruby ruby-dev openssl l
 # vwm-cli - requires nodejs >=8
 curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 sudo apt-get install -y nodejs
-npm install vmw-cli --global
+sudo npm install vmw-cli --global
+
