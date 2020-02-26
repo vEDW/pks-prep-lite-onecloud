@@ -15,3 +15,5 @@ curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 sudo apt-get install -y nodejs
 sudo npm install vmw-cli --global
 
+sudo chown root:ubuntu /usr/lib/node_modules/vmw-cli/lib/*
+sudo chmod 775 /usr/lib/node_modules/vmw-cli/lib/*

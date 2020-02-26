@@ -22,16 +22,16 @@ if [[ ! -e $BITSDIR ]]; then
 fi
 
 # OVFTOOL
-sudo vmw-cli index $OVFTOOLPG
-ovfFileName=`sudo vmw-cli json productGroup:$OVFTOOLPG,fileName:lin.X86 | jq -r '.fileName'`
-sudo vmw-cli get $ovfFileName
+vmw-cli index $OVFTOOLPG
+ovfFileName=`vmw-cli json productGroup:$OVFTOOLPG,fileName:lin.X86 | jq -r '.fileName'`
+vmw-cli get $ovfFileName
 mv $ovfFileName $BITSDIR
 echo "export ovfFileName="$BITSDIR"/"$ovfFileName >> software_filenames.env
 
 # NSX-T
-sudo vmw-cli index $NSXTPG
+vmw-cli index $NSXTPG
 # get manager
-nsxMgrFileName=`sudo vmw-cli json productGroup:$NSXTPG,fileType:ova,fileName:unified | jq -r '.fileName'`
-sudo vmw-cli get $nsxMgrFileName
+nsxMgrFileName=`vmw-cli json productGroup:$NSXTPG,fileType:ova,fileName:unified | jq -r '.fileName'`
+vmw-cli get $nsxMgrFileName
 mv $nsxMgrFileName $BITSDIR
 echo "export nsxMgrFileName="$BITSDIR"/"$nsxMgrFileName >> software_filenames.env
