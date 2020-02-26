@@ -1,0 +1,9 @@
+#vscode settings
+settings.json
+.vscode
+
+#test files
+*.log
+
+#concourse
+credentials.yml

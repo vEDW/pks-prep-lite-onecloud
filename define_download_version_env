@@ -1,0 +1,26 @@
+#!/bin/bash
+
+export BINDIR=/usr/local/bin
+
+export BITSDIR=/download
+
+#Pivotal network 
+export PIVNETRELEASE=0.0.56
+export APIREFRESHTOKEN="<insert-refresh-token-here>"
+
+# VMware Download Account
+export VMWUSER='<username>'
+export VMWPASS='<password>'
+
+# VMware SW Releases [ProductGroup]
+export OVFTOOLPG=OVFTOOL430
+export NSXTPG=NSX-T-251
+export VRLIPG=VRLI-460
+export VROPSPG=VROPS-670
+
+# Pivotal SW Releases
+export OPSMANRELEASE=2.4.6
+export PKSRELEASE=1.3.3
+export STEMCELLRELEASE=3586.36
+export HARBORRELEASE=1.7.3
+export STEMCELLXENIALRELEASE=170.15
