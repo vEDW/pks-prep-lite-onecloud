@@ -2,7 +2,7 @@
 
 export BINDIR=/usr/local/bin
 
-export BITSDIR=/download
+export BITSDIR=/home/ubuntu/download
 
 #Pivotal network 
 export PIVNETRELEASE=0.0.56
