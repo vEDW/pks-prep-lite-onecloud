@@ -5,12 +5,17 @@ export BINDIR=/usr/local/bin
 export BITSDIR=/home/ubuntu/download
 
 #Pivotal network 
-export PIVNETRELEASE=0.0.56
 export APIREFRESHTOKEN="<insert-refresh-token-here>"
 
 # VMware Download Account
 export VMWUSER='<username>'
 export VMWPASS='<password>'
+
+# CLI Tools version
+export PIVNETRELEASE=1.0.2
+export BOSHRELEASE=5.4.0
+export HELMRELEASE=2.13.1
+export OMRELEASE=4.6.0
 
 # VMware SW Releases [ProductGroup]
 export OVFTOOLPG=OVFTOOL430
