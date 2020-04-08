@@ -13,29 +13,21 @@ get_latest_release() {
     cut -d "v" -f 2
 }
 
-# Usage
-# $ get_latest_release "creationix/nvm"
-# v0.31.4
-
 # Github Releases
 
-# pivnet
-echo "pivnet cli : " 
-get_latest_release "pivotal-cf/pivnet-cli"
+# pivnet 
+PIVNETRELEASE=`get_latest_release "pivotal-cf/pivnet-cli"`
+echo "export PIVNETRELEASE=$PIVNETRELEASE"
 
 # om cli
-echo "om cli : "
-get_latest_release "pivotal-cf/om"
+OMRELEASE=`get_latest_release "pivotal-cf/om"`
+echo "export OMRELEASE=$OMRELEASE"
+
 
 # bosh cli
-echo "bosh cli : "
-get_latest_release "cloudfoundry/bosh-cli"
-
-# kubectl cli
-#echo "kubectl cli : "
-#get_latest_release  "kubernetes/kubectl"
+BOSHRELEASE=`get_latest_release "pivotal-cf/om"`
+echo "export BOSHRELEASE=$BOSHRELEASE"
 
 # helm cli
-echo "helm cli : "
-get_latest_release "helm/helm"
-
+HELMRELEASE=`get_latest_release "helm/helm"`
+echo "export HELMRELEASE=$HELMRELEASE"

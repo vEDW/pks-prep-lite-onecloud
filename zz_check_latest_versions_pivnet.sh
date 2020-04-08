@@ -2,8 +2,6 @@
 
 # Created and maintained by Eric De Witte - https://github.com/vEDW/pks-prep-lite-onecloud.git
 # This script is for identifying latest version of cli tools to populate define_download_version_env
-#
-# inspired by Luke Childs : https://gist.github.com/lukechilds/a83e1d7127b78fef38c2914c4ececc3c
 
 source define_download_version_env
 
@@ -20,16 +18,16 @@ pivnet login --api-token=$APIREFRESHTOKEN
 
 # OPS manager
 OPSMANRELEASE=`pivnet rs -p ops-manager --format=json | jq -r '.[0].version'`
-echo "OPSMANRELEASE=$OPSMANRELEASE"
+echo "export OPSMANRELEASE=$OPSMANRELEASE"
 
 # PKS
 PKSRELEASE=`pivnet rs -p pivotal-container-service --format=json | jq -r '.[0].version'`
-echo "PKSRELEASE=$PKSRELEASE"
+echo "export PKSRELEASE=$PKSRELEASE"
 
 # Harbor
 HARBORRELEASE=`pivnet rs -p harbor-container-registry --format=json | jq -r '.[0].version'`
-echo "HARBORRELEASE=$HARBORRELEASE"
+echo "export HARBORRELEASE=$HARBORRELEASE"
 
 #Xenial Stemcell
 STEMCELLXENIALRELEASE=`pivnet rs -p stemcells-ubuntu-xenial --format=json | jq -r '.[0].version'`
-echo "STEMCELLXENIALRELEASE=$STEMCELLXENIALRELEASE"
+echo "export STEMCELLXENIALRELEASE=$STEMCELLXENIALRELEASE"
