@@ -23,7 +23,6 @@ echo "export PIVNETRELEASE=$PIVNETRELEASE"
 OMRELEASE=`get_latest_release "pivotal-cf/om"`
 echo "export OMRELEASE=$OMRELEASE"
 
-
 # bosh cli
 BOSHRELEASE=`get_latest_release "pivotal-cf/om"`
 echo "export BOSHRELEASE=$BOSHRELEASE"

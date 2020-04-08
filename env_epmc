@@ -1,0 +1,39 @@
+#!/bin/sh
+
+# Where are the bits?
+#export BITS=/data/BITS
+
+# Generic credentials 
+export PASSWORD="VMware1!"
+export ADMIN="admin"
+# DNS Zone
+export DOMAIN="corp.local"
+
+
+################
+### PKS Conf ###
+################
+
+export PKS_FQDN="pks.corp.local"
+export REG_FQDN="harbor.corp.local"
+
+alias notary="${PWD}/docker/notary -s https://${REG_FQDN}:4443 --tlscacert ~/.docker/tls/${REG_FQDN}\:4443/ca.crt -d ~/.docker/trust"
+
+export UAA_FQDN="api.${PKS_FQDN}"
+
+# K8s Cluster name, add this in your hosts or dns, ex: "k8s-1"
+export CLUSTER_NAME="k8s-01"
+
+# OpsManager VM IP = DIRECTOR VM deployed by OpsManager, fill-in after deployment
+export DIRECTOR="director.${DOMAIN}"
+export BOSH_ENVIRONMENT=pks
+# OpsManager VM IP or FQDN
+export OPSMANAGER="10.40.14.34"
+export OPSMANAGERPWD="CV0dP6LEHQ4A1235mmtL"
+
+# Sign container image in Harbor during docker push
+export DOCKER_CONTENT_TRUST=1
+export DOCKER_CONTENT_TRUST_SERVER=https://${REG_FQDN}:4443
+
+unset http_proxy
+unset https_proxy
