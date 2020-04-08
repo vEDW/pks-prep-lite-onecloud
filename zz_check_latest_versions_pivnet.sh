@@ -13,7 +13,6 @@ then
     exit 1
 fi
 
-
 #Login
 pivnet login --api-token=$APIREFRESHTOKEN
 
@@ -22,3 +21,15 @@ pivnet login --api-token=$APIREFRESHTOKEN
 # OPS manager
 OPSMANRELEASE=`pivnet rs -p ops-manager --format=json | jq -r '.[0].version'`
 echo "OPSMANRELEASE=$OPSMANRELEASE"
+
+# PKS
+PKSRELEASE=`pivnet rs -p pivotal-container-service --format=json | jq -r '.[0].version'`
+echo "PKSRELEASE=$PKSRELEASE"
+
+# Harbor
+HARBORRELEASE=`pivnet rs -p harbor-container-registry --format=json | jq -r '.[0].version'`
+echo "HARBORRELEASE=$HARBORRELEASE"
+
+#Xenial Stemcell
+STEMCELLXENIALRELEASE=`pivnet rs -p stemcells-ubuntu-xenial --format=json | jq -r '.[0].version'`
+echo "STEMCELLXENIALRELEASE=$STEMCELLXENIALRELEASE"
