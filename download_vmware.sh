@@ -22,8 +22,10 @@ if [[ ! -e $BITSDIR ]]; then
 fi
 
 # OVFTOOL
-vmw-cli index $OVFTOOLPG
-ovfFileName=`vmw-cli json productGroup:$OVFTOOLPG,fileName:lin.X86 | jq -r '.fileName'`
+
+
+
+ovfFileName=`vmw-cli json productGroup,fileName:lin.X86 | jq -r '.fileName'`
 vmw-cli get $ovfFileName
 mv $ovfFileName $BITSDIR
 echo "export ovfFileName="$BITSDIR"/"$ovfFileName >> software_filenames.env
