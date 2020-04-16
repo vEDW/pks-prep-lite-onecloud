@@ -8,6 +8,6 @@
   "$KREW" update
 )
 
-echo 'export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"' >> .bashrc
+echo 'export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"' >> ~/.bashrc
 
 echo "restart shell for krew to be enabled"
