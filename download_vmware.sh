@@ -25,7 +25,7 @@ fi
 
 
 
-ovfFileName=`vmw-cli json productGroup,fileName:lin.X86 | jq -r '.fileName'`
+ovfFileName=`vmw-cli json productGroup:$OVFTOOLPG,fileName:lin.X86 | jq -r '.fileName'`
 vmw-cli get $ovfFileName
 mv $ovfFileName $BITSDIR
 echo "export ovfFileName="$BITSDIR"/"$ovfFileName >> software_filenames.env
@@ -33,7 +33,8 @@ echo "export ovfFileName="$BITSDIR"/"$ovfFileName >> software_filenames.env
 # NSX-T
 vmw-cli index $NSXTPG
 # get manager
-nsxMgrFileName=`vmw-cli json productGroup:$NSXTPG,fileType:ova,fileName:unified | jq -r '.fileName'`
+nsxMgrFileName=`vmw-cli json productGroup:$NSXTPG,fileType:ova,fileName:unified  | jq -r '.fileName'`
 vmw-cli get $nsxMgrFileName
 mv $nsxMgrFileName $BITSDIR
 echo "export nsxMgrFileName="$BITSDIR"/"$nsxMgrFileName >> software_filenames.env
+cat define_download_version_env
