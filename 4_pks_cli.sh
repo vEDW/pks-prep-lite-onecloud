@@ -24,3 +24,7 @@ sudo chown root:root pks
 sudo chmod +x pks
 sudo cp pks ${BINDIR}/pks
 rm pks
+
+pks --version
+
+
