@@ -23,8 +23,8 @@ mv duffle-* duffle
 sudo chown root:root duffle
 sudo chmod +x duffle
 sudo cp duffle ${BINDIR}/duffle
-rm duffle
+rm duffle -f
 
-duffle --version
+duffle version
 
 
