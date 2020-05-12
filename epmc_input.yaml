@@ -1,0 +1,323 @@
+auth:
+  auth_type: local
+  cluster_client_access_token_lifetime: 600
+  cluster_client_refresh_token_lifetime: 21600
+  ldap_cert: ""
+  ldap_cert_altname: ""
+  ldap_email_attribute: mail
+  ldap_email_domains: ""
+  ldap_external_group_whitelist: '*'
+  ldap_firstname_attribute: ""
+  ldap_group_search_base: ""a
+  ldap_group_search_filter: member={0}
+  ldap_lastname_attribute: ""
+  ldap_password: ""
+  ldap_referrals: follow
+  ldap_url: ""
+  ldap_user_search_base: ""
+  ldap_user_search_filter: cn={0}
+  ldap_username: ""
+  oidc_groups_claim: roles
+  oidc_groups_prefix: 'oidc:'
+  oidc_username_claim: user_name
+  oidc_username_prefix: 'oidc:'
+  pks_cli_access_token_lifetime: 600
+  pks_cli_refresh_token_lifetime: 21600
+  saml_display_name: ""
+  saml_email_attribute: ""
+  saml_external_groups_attribute: ""
+  saml_first_name_attribute: ""
+  saml_last_name_attribute: ""
+  saml_name_id_format: ""
+  saml_require_signed_assertions: false
+  saml_sign_auth_requests: false
+  saml_signature_algorithm: ""
+  saml_sso_name: ""
+  saml_sso_url: ""
+  saml_sso_xml: ""
+  uaa_as_cluster_oidc_provider: true
+availability_zones:
+- for_management_only: true
+  name: MGMT
+  resources:
+  - resgroup-157
+- for_management_only: false
+  name: AZ1
+  resources:
+  - HostGroup:HG-AZ1:domain-c26
+- for_management_only: false
+  name: AZ2
+  resources:
+  - HostGroup:HG-AZ2:domain-c26
+- for_management_only: false
+  name: AZ3
+  resources:
+  - HostGroup:HG-AZ3:domain-c26
+bosh_trust_opsman_ca: true
+bosh_trusted_root_certs: ""
+dns_servers: ""
+enable_telemetry: false
+ephemeral_storage:
+- datastore-155
+harbor:
+  address_pool1_cidr: ""
+  address_pool1_size: ""
+  address_pool2_cidr: ""
+  address_pool2_size: ""
+  address_pool3_cidr: ""
+  address_pool3_size: ""
+  admin_password: <hidden:5481ece5-5a72-4218-84e2-4c0bc9559d4f>
+  api_ca: ""
+  api_cert: ""
+  api_private_key: ""
+  auth_mode: internal
+  clair_enabled: true
+  clair_http_proxy: ""
+  clair_https_proxy: ""
+  clair_no_proxy_addresses: ""
+  clair_update_interval_hours: 1
+  enabled: true
+  hostname: harbor.corp.local
+  log_insight_enabled: true
+  log_insight_host: vrli-01a.corp.local
+  log_insight_port: 514
+  log_insight_protocol: tcp
+  manual_ssl_certs: false
+  notary_enabled: true
+  post_deploy_enable_smoke_test: true
+  pre_delete_enable_deregister_uaa: true
+  storage_aws_access_key: ""
+  storage_aws_enable_v4auth: true
+  storage_aws_region: ""
+  storage_aws_s3_url: ""
+  storage_aws_secret: ""
+  storage_aws_secure_mode: true
+  storage_gcs_service_account_key: ""
+  storage_local_persistent_disk_type: "51200"
+  storage_nfs_share: ""
+  storage_s3_bucket_name: ""
+  storage_s3_bucket_root_dir: ""
+  storage_s3_chunksize: 5242880
+  storage_type: local
+  use_default_network_settings: true
+  vm_type: medium.disk
+identity_manual_ssl_certs: false
+identity_pks_api_host: pks.corp.local
+k8s_pv_storage:
+- datastore-155
+log_insight:
+  ca_cert: ""
+  enable_ssl: true
+  enable_ssl_cert_validation: false
+  enabled: true
+  host: vrli-01a.corp.local
+  rate_limiting: 0
+logsink:
+  deploy_log_sink_resources: true
+  deploy_metric_sink_resources: true
+network:
+  active_t0_edge_node: bb595d47-33ea-4da4-9741-b30c1e8966e2
+  active_t0_edge_node_ip: 192.168.210.3
+  additional_dep_reserved_ip_ranges: ""
+  additional_svc_reserved_ip_ranges: ""
+  autoprovision_nsx: true
+  dep_dns: 192.168.110.10
+  dep_network_cidr: 172.31.0.0/24
+  dep_network_gateway: ""
+  dep_network_name: ""
+  dep_reserved_ip_range_from: ""
+  dep_reserved_ip_range_to: ""
+  enable_outbound_traffic: false
+  external_portgroup_gateway: 192.168.210.1
+  external_portgroup_netmask: 255.255.255.0
+  external_portgroup_subnet: 192.168.210.0
+  external_vlan_id: 0
+  flannel_pod_network_cidr: 10.200.0.0/16
+  flannel_service_network_cidr: 10.100.200.0/24
+  floating_ips_range: 10.40.14.34-10.40.14.62,10.40.14.2-10.40.14.6
+  nsx_ca_crt: ""
+  nsx_dns: 192.168.110.10
+  nsx_enable_http_proxy: false
+  nsx_fip_id: ""
+  nsx_hybrid_nat: false
+  nsx_manual_ssl_certs: false
+  nsx_nat_mode: true
+  nsx_node_cidr: 172.16.0.0/16
+  nsx_node_ip_block_id: ""
+  nsx_pod_cidr: 172.15.0.0/16
+  nsx_pod_ip_block_id: ""
+  nsx_service_network_cidr: 10.100.200.0/24
+  nsx_t0_id: ""
+  nsx_verify_ssl_certs: false
+  proxy_http_password: ""
+  proxy_http_url: ""
+  proxy_http_user: ""
+  proxy_https_password: ""
+  proxy_https_url: ""
+  proxy_https_user: ""
+  proxy_no_proxy_addresses: ""
+  standby_t0_edge_node: ""
+  standby_t0_edge_node_ip: ""
+  svc_dns: ""
+  svc_network_cidr: 172.16.101.0/24
+  svc_network_gateway: ""
+  svc_network_name: ""
+  svc_reserved_ip_range_from: ""
+  svc_reserved_ip_range_to: ""
+  t0_edge_node_lb_ip: ""
+  t0_ha_mode_active_active: false
+  use_nsx: true
+nsx_host: nsxmgr-01a.corp.local
+nsx_password: <hidden:afeadd5b-50f1-4be6-af87-52c210b8a3d9>
+nsx_username: admin
+ntp_servers: 192.168.100.1
+opsman_fqdn: "opsman.corp.local"
+permanent_storage:
+- datastore-155
+pks_api_cert: ""
+pks_api_private_key: ""
+pks_db_persistent_disk_type: "10240"
+pks_db_vm_type: large.disk
+pks_enable_db_ha: false
+pks_enable_quotas: false
+pks_persistent_disk_type: "10240"
+pks_run_upgrade_clusters_errand: false
+pks_telemetry:
+  customerNumber: ""
+  installation_purpose: demo_or_poc
+  selector: disabled
+pks_vm_instance_number: 1
+pks_vm_type: medium.disk
+plans:
+- addons-spec: ""
+  admission_deny_escalating_exec: false
+  admission_pod_security_policy: false
+  admission_security_context_deny: false
+  allow_privileged_containers: true
+  apply_addons_azs: []
+  apply_addons_instances: 1
+  apply_addons_lifecycle: errand
+  apply_addons_networks: []
+  apply_addons_vm_type: medium.disk
+  cluster_services_linux_ha_enabled: false
+  description: This plan will configure a lightweight Kubernetes cluster. Not recommended
+    for production workloads.
+  kubelet_custimzation_hard_eviction_threshold: ""
+  kubelet_custimzation_system_reserved: ""
+  kubelet_drain_delete_local_data: true
+  kubelet_drain_force: true
+  kubelet_drain_force_node: false
+  kubelet_drain_grace_period: 10
+  kubelet_drain_ignore_daemonsets: true
+  kubelet_drain_timeout: 0
+  master_azs:
+  - enabled: true
+    name: AZ1
+  - enabled: true
+    name: AZ2
+  - enabled: true
+    name: AZ3
+  master_instances: 1
+  master_networks: []
+  master_persistent_disk_type: "10240"
+  master_vm_extensions: []
+  master_vm_type: medium.disk
+  name: Small
+  plan_id: ""
+  post_deploy_errands: []
+  pre_delete_errands: []
+  windows_worker_os_enabled: false
+  worker_azs:
+  - enabled: true
+    name: AZ1
+  - enabled: true
+    name: AZ2
+  - enabled: true
+    name: AZ3
+  worker_instances: 2
+  worker_max_instances: 50
+  worker_networks: []
+  worker_persistent_disk_type: "30720"
+  worker_vm_extensions: []
+  worker_vm_type: medium.disk
+- addons-spec: ""
+  admission_deny_escalating_exec: false
+  admission_pod_security_policy: false
+  admission_security_context_deny: false
+  allow_privileged_containers: true
+  apply_addons_azs: []
+  apply_addons_instances: 1
+  apply_addons_lifecycle: errand
+  apply_addons_networks: []
+  apply_addons_vm_type: medium.disk
+  cluster_services_linux_ha_enabled: false
+  description: 'Example: This plan will configure a medium sized Kubernetes cluster,
+    suitable for more pods.'
+  kubelet_custimzation_hard_eviction_threshold: ""
+  kubelet_custimzation_system_reserved: ""
+  kubelet_drain_delete_local_data: true
+  kubelet_drain_force: true
+  kubelet_drain_force_node: false
+  kubelet_drain_grace_period: 10
+  kubelet_drain_ignore_daemonsets: true
+  kubelet_drain_timeout: 0
+  master_azs:
+  - enabled: true
+    name: AZ1
+  - enabled: true
+    name: AZ2
+  - enabled: true
+    name: AZ3
+  master_instances: 3
+  master_networks: []
+  master_persistent_disk_type: "10240"
+  master_vm_extensions: []
+  master_vm_type: medium.disk
+  name: Medium
+  plan_id: ""
+  post_deploy_errands: []
+  pre_delete_errands: []
+  windows_worker_os_enabled: false
+  worker_azs:
+  - enabled: true
+    name: AZ1
+  - enabled: true
+    name: AZ2
+  - enabled: true
+    name: AZ3
+  worker_instances: 2
+  worker_max_instances: 50
+  worker_networks: []
+  worker_persistent_disk_type: "30720"
+  worker_vm_extensions: []
+  worker_vm_type: medium.disk
+syslog:
+  address: ""
+  enable_tls: false
+  enabled: false
+  permitted_peer: ""
+  port: 0
+  protocol: tcp
+  tls_cert: ""
+tmc_integration:
+  enabled: false
+  tmc_api_token: ""
+  tmc_api_url: ""
+  tmc_cluster_name_prefix: pks-
+  tmc_group_name: ""
+use_thin_provisioned_disks: true
+vcenter_datacenter: datacenter-21
+vcenter_host: vcsa-01a.corp.local
+vcenter_password: <hidden:fe2a600d-ef18-4729-b9ed-ffe81f2b3804>
+vcenter_username: administrator@corp.local
+vrops:
+  enabled: false
+wavefront:
+  alert_receipients: ""
+  enable_create_alerts: true
+  enable_delete_alerts: true
+  enabled: false
+  pks_wavefront_http_proxy: ""
+  token: ""
+  url: ""
+worker_max_in_flight: 1

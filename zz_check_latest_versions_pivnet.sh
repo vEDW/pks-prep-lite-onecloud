@@ -31,3 +31,7 @@ echo "export HARBORRELEASE=$HARBORRELEASE"
 #Xenial Stemcell
 STEMCELLXENIALRELEASE=`pivnet rs -p stemcells-ubuntu-xenial --format=json | jq -r '.[0].version'`
 echo "export STEMCELLXENIALRELEASE=$STEMCELLXENIALRELEASE"
+
+# Build-service 
+BUILDSERVICERELEASE=`pivnet rs -p build-service --format=json | jq -r '.[0].version'`
+echo "export BUILDSERVICERELEASE=$BUILDSERVICERELEASE"

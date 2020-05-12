@@ -12,7 +12,7 @@ export VMWUSER='<username>'
 export VMWPASS='<password>'
 
 # CLI Tools version
-export PIVNETRELEASE=1.0.2
+export PIVNETRELEASE=1.0.3
 export BOSHRELEASE=5.4.0
 export HELMRELEASE=2.13.1
 export OMRELEASE=4.6.0
@@ -29,3 +29,4 @@ export PKSRELEASE=1.3.3
 export STEMCELLRELEASE=3586.36
 export HARBORRELEASE=1.7.3
 export STEMCELLXENIALRELEASE=170.15
+export BUILDSERVICERELEASE=0.1.0

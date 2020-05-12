@@ -13,3 +13,14 @@ sudo mv kubectx ${BINDIR}/kubectx
 curl -L0 https://raw.githubusercontent.com/ahmetb/kubectx/master/kubens > kubens
 chmod +x kubens
 sudo mv kubens ${BINDIR}/kubens
+
+git clone https://github.com/ahmetb/kubectx.git ~/.kubectx
+COMPDIR=$(pkg-config --variable=completionsdir bash-completion)
+ln -sf ~/.kubectx/completion/kubens.bash $COMPDIR/kubens
+ln -sf ~/.kubectx/completion/kubectx.bash $COMPDIR/kubectx
+cat << FOE >> ~/.bashrc
+
+
+#kubectx and kubens
+export PATH=~/.kubectx:\$PATH
+FOE
