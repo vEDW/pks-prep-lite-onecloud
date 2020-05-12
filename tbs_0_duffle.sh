@@ -17,7 +17,7 @@ fi
 # duffle cli
 pivnet login --api-token=$APIREFRESHTOKEN
 DuffleFileID=`pivnet pfs -p build-service -r $BUILDSERVICERELEASE | grep 'duffle-cli-linux' | awk '{ print $2}'`
-pivnet download-product-files -p pivotal-container-service -r $BUILDSERVICERELEASE -i $DuffleFileID
+pivnet download-product-files -p build-service -r $BUILDSERVICERELEASE -i $DuffleFileID
 
 mv duffle-* duffle 
 sudo chown root:root duffle
