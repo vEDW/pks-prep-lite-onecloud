@@ -19,7 +19,7 @@ pivnet login --api-token=$APIREFRESHTOKEN
 BBRFileID=`pivnet pfs -p p-bosh-backup-and-restore -r $BBRRELEASE | grep 'BOSH Backup and Restore Linux' | awk '{ print $2}'`
 pivnet download-product-files -p p-bosh-backup-and-restore -r $BBRRELEASE -i $BBRFileID
 
-mv pks-* bbr 
+mv bbr-* bbr 
 sudo chown root:root bbr
 sudo chmod +x bbr
 sudo cp bbr ${BINDIR}/bbr
