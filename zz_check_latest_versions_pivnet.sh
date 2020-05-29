@@ -35,3 +35,7 @@ echo "export STEMCELLXENIALRELEASE=$STEMCELLXENIALRELEASE"
 # Build-service 
 BUILDSERVICERELEASE=`pivnet rs -p build-service --format=json | jq -r '.[0].version'`
 echo "export BUILDSERVICERELEASE=$BUILDSERVICERELEASE"
+
+# BBR
+BBRRELEASE=`pivnet rs -p p-bosh-backup-and-restore --format=json | jq -r '.[0].version'`
+echo "export BBRRELEASE=$BBRRELEASE"
