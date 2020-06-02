@@ -25,10 +25,10 @@ export UAA_FQDN="api.${PKS_FQDN}"
 export CLUSTER_NAME="k8s-01"
 
 # OpsManager VM IP = DIRECTOR VM deployed by OpsManager, fill-in after deployment
-export DIRECTOR="director.${DOMAIN}"
+export DIRECTOR="172.31.0.3"
 export BOSH_ENVIRONMENT=pks
 # OpsManager VM IP or FQDN
-export OPSMANAGER="10.40.14.34"
+export OPSMANAGER="opsman.corp.local"
 export OPSMANAGERPWD="CV0dP6LEHQ4A1235mmtL"
 
 # Sign container image in Harbor during docker push
