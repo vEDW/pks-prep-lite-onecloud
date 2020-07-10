@@ -30,3 +30,7 @@ echo "export BOSHRELEASE=$BOSHRELEASE"
 # helm cli
 HELMRELEASE=`get_latest_release "helm/helm"`
 echo "export HELMRELEASE=$HELMRELEASE"
+
+# govc cli
+GOVCRELEASE=`get_latest_release "vmware/govmomi"`
+echo "export GOVCRELEASE=$GOVCRELEASE"
