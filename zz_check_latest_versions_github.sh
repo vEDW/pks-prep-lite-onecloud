@@ -24,7 +24,7 @@ OMRELEASE=`get_latest_release "pivotal-cf/om"`
 echo "export OMRELEASE=$OMRELEASE"
 
 # bosh cli
-BOSHRELEASE=`get_latest_release "pivotal-cf/om"`
+BOSHRELEASE=`get_latest_release "cloudfoundry/bosh-cli"`
 echo "export BOSHRELEASE=$BOSHRELEASE"
 
 # helm cli

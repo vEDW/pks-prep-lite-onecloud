@@ -29,11 +29,13 @@ UAAClientSecret=$( om -t https://${OPSMANAGER} -u "${ADMIN}" -p "${OPSMANAGERPWD
 om -t https://${OPSMANAGER} -u "${ADMIN}" -p "${OPSMANAGERPWD}" -k curl -p /download_root_ca_cert -s > pks_root_ca.cert 
 
 # Retrieve the BOSH Command Line Credentials
+# This is done by script 5-bosh-env.sh
+
 # USER : director
 # PASSWD : https://OPS-MANAGER-FQDN/api/v0/deployed/director/credentials/director_credentials
-rm -fr ~/.bosh
-om -t https://${OPSMANAGER} -u "${ADMIN}" -p "${OPSMANAGERPWD}" -k curl -p /api/v0/certificate_authorities -s | jq -r '.certificate_authorities | select(map(.active == true))[0] | .cert_pem' > ca.crt 
-bosh alias-env pks -e ${DIRECTOR} --ca-cert ca.crt
+# rm -fr ~/.bosh
+# om -t https://${OPSMANAGER} -u "${ADMIN}" -p "${OPSMANAGERPWD}" -k curl -p /api/v0/certificate_authorities -s | jq -r '.certificate_authorities | select(map(.active == true))[0] | .cert_pem' > ca.crt 
+# bosh alias-env pks -e ${DIRECTOR} --ca-cert ca.crt
 
 PASSWD=$( om -t https://${OPSMANAGER} -u "${ADMIN}" -p "${OPSMANAGERPWD}" -k curl -p /api/v0/deployed/director/credentials/director_credentials -s | jq '.[] | .value.password' | sed -e "s/\"//g" )
 echo -e "director\n${PASSWD}" | bosh -e pks log-in
@@ -48,14 +50,10 @@ bbr director  --host $DIRECTOR  --username bbr --private-key-path bbr_key.pem  p
 
 bbr deployment --target $DIRECTOR  --username $BOSH_CLIENT --deployment $PKSDeployGuid --ca-cert ca.crt pre-backup-check
 
+k8sClusters=$(bosh -e pks deployments --json | jq -r '.Tables[].Rows[] | select(.name | contains("service-instance_")) | .name')
+for CLUSTERUUID in ${k8sClusters[@]}
+do
+    bbr deployment --target $DIRECTOR  --username $BOSH_CLIENT --deployment $CLUSTERUUID --ca-cert ca.crt pre-backup-check
+done
 
-
-#Retrieve Your Cluster Deployment Names
-
-PKSapiPASSWD=$( om -t https://${OPSMANAGER} -u "${ADMIN}" -p "${OPSMANAGERPWD}" -k curl -p /api/v0/deployed/products/$PKSDeployGuid/credentials/.properties.uaa_admin_password -s | jq -r '.credential.value.secret' )
-
-pks login -a $PKS_FQDN -u admin -p $PKSapiPASSWD -k
-pks clusters
-
-bosh -e pks deployments | grep UUID
 

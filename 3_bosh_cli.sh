@@ -10,7 +10,7 @@ sudo apt-get update -y
 sudo apt-get upgrade -y
 
 # bosh
-curl -LO https://s3.amazonaws.com/bosh-cli-artifacts/bosh-cli-${BOSHRELEASE}-linux-amd64
+curl -LO https://github.com/cloudfoundry/bosh-cli/releases/download/v${BOSHRELEASE}/bosh-cli-${BOSHRELEASE}-linux-amd64
 sudo cp bosh-cli-${BOSHRELEASE}-linux-amd64 ${BINDIR}/bosh
-sudo chmod ugo+x ${BINDIR}/bosh 
+sudo chmod ugo+x ${BINDIR}/bosh
 rm bosh-cli-${BOSHRELEASE}-linux-amd64
